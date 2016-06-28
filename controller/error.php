@@ -5,8 +5,8 @@ class Error extends Controller {
 		parent::__construct();
 	}
 
-	function index(){
-		$this->view->msg = 'Page not found!';
+	function index($url){
+		$this->view->msg = $url. ' not found!';
 		$this->view->render('error/index');
 	}
 }

@@ -51,11 +51,9 @@ class Bootstrap {
 
   // Display an error if nothing exists
   private function _error() {
-    echo "Error! This file does not exist yet.";
-    /** We do this later:
-    * require 'controllers/error.php';
-    * $this->_controller = new Error();
-    * $this->_controller->index(); */
-    return true;
+    require 'controller/error.php';
+    $this->_controller = new Error();
+    $this->_controller->index($this->_url[0]);
+    return false;
   }
 }
