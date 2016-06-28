@@ -5,11 +5,11 @@ class View {
 
 	public function render($name, $noInclude = false){
 		if($noInclude == true){
-			require 'views/' . $name . '.php';
+			require 'view/' .$name. '.php';
 		}else{
-			require 'views/header.php';
-			require 'views/' . $name . '.php';
-			require 'views/footer.php';
+			require 'view/header.php';
+			require 'view/' .$name. '.php';
+			require 'view/footer.php';
 		}
 	}
 }
