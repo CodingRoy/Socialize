@@ -1,7 +1,7 @@
 <p class=""> Welcome to Socialize! </p>
 <p class=""> Join us here! </p>
 <form action="../user/create" method="post">
-	<p class="">Steam username</div>
+	<p class="">Username</div>
 	<input class="" type="text" name="username" placeholder="Username">
 	<p class="">Email Address</div>
 	<input class="" type="text" name="email" placeholder="Email Address">
