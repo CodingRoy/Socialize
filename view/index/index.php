@@ -7,5 +7,5 @@
 	<input class="" type="text" name="email" placeholder="Email Address">
 	<p class="">Create password</p>
 	<input class="" type="password" name="password" placeholder="Create password">
-	<input type="submit" class="" value="Register">
+	<input class="" type="submit" value="Register">
 </form>

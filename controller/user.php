@@ -1,6 +1,5 @@
 <?php
 class User extends Controller {
-
 	function __construct(){
 		parent::__construct();
 	}
@@ -17,6 +16,7 @@ class User extends Controller {
 			}else {
 				$this->view->title= $username.' you are not registered' .header("refresh: 6; url=".URL);
 				$this->view->content='Please try again later, or use another email address.';
+				die;
 			}
 			$header = 'MIME-Version: 1.0' . "\r\n";
 			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
