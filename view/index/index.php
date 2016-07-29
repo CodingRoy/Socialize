@@ -1,6 +1,6 @@
 <p class=""> Welcome to Socialize! </p>
 <p class=""> Join us here! </p>
-<form action="../user/create" method="post">
+<form action="<?php echo URL ?>user/create" method="post">
 	<p class="">Username</p>
 	<input class="" type="text" name="username" placeholder="Username">
 	<p class="">Email Address</p>

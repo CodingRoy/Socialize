@@ -6,7 +6,7 @@ class Login_Model extends Model {
 
 	public function run(){
 		$passcheck = Hash::create('md5', $_POST['password']);
-		$sth = $this->db->prepare("SELECT user_id FROM users WHERE username = :username AND password = :password AND activated = 1");
+		$sth = $this->db->prepare("SELECT user_id FROM users WHERE username = :username AND password = :password AND activated = 'Yes'");
 		$sth->bindParam(':username', ucfirst($_POST['username']));
 		$sth->bindParam(':password', $passcheck);
 		$sth->execute();

@@ -43,4 +43,22 @@ class User extends Controller {
 	  }
 	  $this->view->render('check/index');
 	}
+
+	function profile($username = false){
+		$this->view->item = 'profile';
+		if ($this->model->userinfo($username) !== null) {
+			$this->view->userinfo = $this->model->userinfo($username);
+			if ($username == Session::get('username')) {
+				$this->view->render('profile/private');
+			} else { $this->view->render('profile/index'); }
+		} else {
+			$this->_error($username);
+		}
+	}
+
+	private function _error($username){
+		$this->view->title= 'User ' .$username. ' not found!';
+		$this->view->content= 'Check your spelling or you are searching for a user that does not exist!';
+		$this->view->render('check/index');
+	}
 }

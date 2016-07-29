@@ -22,11 +22,6 @@ class Dashboard extends Controller {
         header('location: ' .URL. 'dashboard');
     }
 
-    function profile(){
-      $this->view->item = 'profile';
-      $this->view->render('dashboard/profile');
-    }
-
     function logout() {
         Session::destroy();
         header('location: ' .URL);
