@@ -19,13 +19,24 @@ class User_Model extends Model {
   }
 
   public function activate($email) {
-    $sth = $this->db->prepare("UPDATE users SET activated='1' WHERE sha1(email) = :email");
+    $sth = $this->db->prepare("UPDATE users SET activated='Yes' WHERE sha1(email) = :email");
     $sth->bindParam(':email', $email);
     $sth->execute();
     if ($sth->rowcount() == 1) {
       return 1;
     } else {
       return 0;
+    }
+  }
+
+  public function userinfo($username) {
+    $sth = $this->db->prepare("SELECT * FROM users WHERE username = :Username");
+    $sth->bindParam(':Username', $username);
+    $sth->execute();
+    if ($sth->rowcount() == 1) {
+      return $sth->fetchAll();
+    } else {
+      return null;
     }
   }
 }
