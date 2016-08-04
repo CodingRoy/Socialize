@@ -5,11 +5,11 @@ class User_Model extends Model {
   }
 
   public function create($username, $email, $password) {
-    $sth = $this->db->prepare("INSERT into users (`username`, `email`, `password`, `registration_date`) "
-        . "VALUES (:username, :email, :password, CURDATE())");
+    $sth = $this->db->prepare("INSERT into users (`username`, `password`, `email`, `registration_date`) "
+        . "VALUES (:username, :password, :email, CURDATE())");
     $sth->bindParam(':username', $username);
     $sth->bindParam(':email', $email);
-    $sth->bindParam(':password', Hash::create('md5', $_POST['password']));
+    $sth->bindParam(':password', $password);
     $sth->execute();
     if ($sth->rowcount() == 1) {
       return 1;

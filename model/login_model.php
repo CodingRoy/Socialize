@@ -17,8 +17,8 @@ class Login_Model extends Model {
 			Session::set('loggedIn', true);
 			Session::set('username', ucfirst($_POST['username']));
 			Session::set('user_id', $user_id);
-			$sth2 = $this->db->prepare("UPDATE users SET last_active = CURDATE() WHERE id = :id");
-			$sth2->execute(array(':id' => $user_id));
+			$sth2 = $this->db->prepare("UPDATE users SET last_active = CURDATE() WHERE user_id = :user_id");
+			$sth2->execute(array(':user_id' => $user_id));
 			header('location: ' .URL. 'dashboard');
 		}else{
 			header('location: ' .URL. 'login');
