@@ -9,4 +9,10 @@ class Index extends Controller {
 	function index() {
 		$this->view->render('index/index');
 	}
+
+	function logout() {
+			Session::destroy();
+			header('location: ' .URL);
+			exit;
+	}
 }

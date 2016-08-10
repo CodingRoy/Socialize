@@ -21,10 +21,4 @@ class Dashboard extends Controller {
         $this->model->post();
         header('location: ' .URL. 'dashboard');
     }
-
-    function logout() {
-        Session::destroy();
-        header('location: ' .URL);
-        exit;
-    }
 }
