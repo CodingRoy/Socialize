@@ -7,5 +7,6 @@
 	<input class="" type="text" name="email" placeholder="Email address">
 	<p class="">Create password</p>
 	<input class="" type="password" name="password" placeholder="Create password">
+	<div class="g-recaptcha" data-sitekey="Your Site key"></div>
 	<input class="" type="submit" value="Register">
 </form>
