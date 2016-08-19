@@ -8,7 +8,22 @@ class User extends Controller {
 		$username	= ucfirst($_POST['username']);
 		$email		= $_POST['email'];
 		$password	= Hash::create('md5', $_POST['password']);
+		$recaptcha  = "https://google.com/recaptcha/api/siteverify";
+		$secretkey = "Yor Secret key";
+		$response = file_get_contents($recaptcha."?secret=".$secretkey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+		$data = json_decode($response);
 
+		if(isset($data->success) AND $data->success==true){
+			$this->checkdata($username,$email,$password);
+		}else {
+			$this->view->title= "reCAPTCHA failed, are you a robot?";
+			$this->view->content='Before pressing register please vink the box to verify that you are not a robot';
+			$this->view->render('check/index');
+		}
+	}
+
+	//This function needs to be improved, check for username lenght and valid email scheduled for Socialize 0.6.0
+	private function checkdata($username,$email,$password){
 		if($username != null && $email != null && $password != null){
 			if($this->model->create($username, $email, $password) == 1){
 				$this->view->title= $username.' you are succesfull registered' .header("refresh: 10; url=".URL);
