@@ -9,8 +9,7 @@ class User extends Controller {
 		$email		= $_POST['email'];
 		$password	= Hash::create('md5', $_POST['password']);
 		$recaptcha  = "https://google.com/recaptcha/api/siteverify";
-		$secretkey = "Yor Secret key";
-		$response = file_get_contents($recaptcha."?secret=".$secretkey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+		$response = file_get_contents($recaptcha."?secret=".SECRETKEY."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 		$data = json_decode($response);
 
 		if(isset($data->success) AND $data->success==true){
