@@ -7,6 +7,5 @@ class View {
 			require 'view/header.php';
 			require 'view/' .$name. '.php';
 			require 'view/footer.php';
-		}
 	}
 }
