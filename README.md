@@ -10,3 +10,12 @@ This project is going to be made in an MVC structure based on PHP and a bit jQue
 
 ## License
 [Socialize License](LICENSE)
+
+## Recaptcha security
+Google Recaptcha can be found here: https://developers.google.com/recaptcha/, sing in with your google account and make your API key here: https://www.google.com/recaptcha/admin#list.
+### To get the Recaptcha working follow these steps:
+* Create your API key's by registering your domain and copy "Your Site key"
+* Replace "Your Site key" in the config file. Socialize/config.php
+* Copy your "Secret Key" from recaptcha and replace "Your Secret key" also in the config file. ;) 
+
+Recaptcha should now work fine 😄 
