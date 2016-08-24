@@ -34,7 +34,7 @@ class User extends Controller {
 			}
 			$header = 'MIME-Version: 1.0' . "\r\n";
 			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$header .= "From: noreply@Socialize\r\n";
+			$header .= "From:".MAIL."\r\n";
 			$message = '<html><head><title></title></head><body>Welcome to Socialize ' .$username. ', <br /><br />
 						      We are really happy to see you here! <br />
 						      <a href="'.URL.'user/activate/'.sha1($email).'">Please use this link to activate your account</a>.<br /><br />
