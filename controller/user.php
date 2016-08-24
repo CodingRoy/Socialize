@@ -4,6 +4,7 @@ class User extends Controller {
 		parent::__construct();
 	}
 
+	//Set POST values to variables and check if the recaptcha response is succesfull, then go to the checkdata function.
 	public function create(){
 		$username	= ucfirst($_POST['username']);
 		$email		= $_POST['email'];
@@ -11,11 +12,10 @@ class User extends Controller {
 		$recaptcha  = "https://google.com/recaptcha/api/siteverify";
 		$response = file_get_contents($recaptcha."?secret=".SECRETKEY."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 		$data = json_decode($response);
-
-		if(isset($data->success) AND $data->success==true){
+		if(isset($data->success) && $data->success==true){
 			$this->checkdata($username,$email,$password);
 		}else {
-			$this->view->title= "reCAPTCHA failed, are you a robot?";
+			$this->view->title= 'reCAPTCHA failed, are you a robot?'.header("refresh: 8; url=".URL);
 			$this->view->content='Before pressing register please vink the box to verify that you are not a robot';
 			$this->view->render('check/index');
 		}
@@ -47,6 +47,7 @@ class User extends Controller {
 		}
 	}
 
+	// Activates an user bij checking the encoded email address in the url.
 	public function activate($email){
 	  if($this->model->activate($email) == 1){
       $this->view->title= 'You are succesfully activated' .header("refresh: 6; url=".URL);
@@ -58,6 +59,7 @@ class User extends Controller {
 	  $this->view->render('check/index');
 	}
 
+	//Loads n user profile by checking the username in the url
 	function profile($username = false){
 		$this->view->item = 'profile';
 		if ($this->model->userinfo($username) !== null) {
@@ -70,6 +72,7 @@ class User extends Controller {
 		}
 	}
 
+	// Just for showing an error for userpages
 	private function _error($username){
 		$this->view->title= 'User ' .$username. ' not found!';
 		$this->view->content= 'Check your spelling or you are searching for a user that does not exist!';
