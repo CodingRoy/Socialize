@@ -14,7 +14,7 @@ class Login_Model extends Model {
 		if($sth->rowCount() === 1){
 			Session::init();
 			Session::set('loggedIn', true);
-			Session::set('username', $username;
+			Session::set('username', $username);
 			Session::set('user_id', $user_id);
 			$sth2 = $this->db->prepare("UPDATE users SET last_active = current_timestamp() WHERE user_id = :user_id");
 			$sth2->execute(array(':user_id' => $user_id));
