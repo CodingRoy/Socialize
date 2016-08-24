@@ -1,6 +1,5 @@
 <?php
 class Bootstrap {
-
   private $_url = null;
   private $_controller = null;
 
