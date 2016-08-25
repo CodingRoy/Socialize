@@ -20,7 +20,7 @@ class Dashboard extends Controller {
     function post() {
       $ptitle = ucfirst($_POST['Post_title']);
       $pcontent = ucfirst($_POST['Post']);
-      $this->model->post();
+      $this->model->post($ptitle, $pcontent);
       header('location: ' .URL. 'dashboard');
     }
 }
