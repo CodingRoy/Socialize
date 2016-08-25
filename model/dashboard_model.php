@@ -10,10 +10,10 @@ class Dashboard_Model extends Model {
       return $sth->fetchAll();
     }
 
-    function post() {
+    function post($ptitle, $pcontent) {
       $sth = $this->db->prepare("INSERT INTO posts (post_title, post_content, post_date, post_by) VALUES (:Post_title, :Post, NOW(), :Post_by)");
-      $sth->bindParam(':Post_title', ucfirst($_POST['Post_title']));
-      $sth->bindParam(':Post', ucfirst($_POST['Post']));
+      $sth->bindParam(':Post_title', $ptitle);
+      $sth->bindParam(':Post', $pcontent);
       $sth->bindParam(':Post_by', Session::get('user_id'));
       $sth->execute();
     }
