@@ -11,7 +11,7 @@ class Login extends Controller {
 
 	function run(){
 		$password = Hash::create('md5', $_POST['password']);
-		$username = ucfirst($_POST['username'])
+		$username = ucfirst($_POST['username']);
 		$this->model->run($username, $password);
 	}
 }

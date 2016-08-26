@@ -4,7 +4,7 @@ class User extends Controller {
 		parent::__construct();
 	}
 
-	//Set POST values to variables and check if the recaptcha response is succesfull, then go to the checkdata function.
+	//Set POST values to variables and check if the recaptcha response is succesfull and if the values match with what we want, then go to the checkdata function.
 	public function create(){
 		$username	= ucfirst($_POST['username']);
 		$email		= $_POST['email'];
@@ -12,26 +12,22 @@ class User extends Controller {
 		$recaptcha  = "https://google.com/recaptcha/api/siteverify";
 		$response = file_get_contents($recaptcha."?secret=".SECRETKEY."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 		$data = json_decode($response);
-		if(isset($data->success) && $data->success==true){
-			$this->checkdata($username,$email,$password);
+		if($username != null &&$username < 30 && preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",htmlspecialchars($email)) && $password != null){
+			if(isset($data->success) && $data->success==true){
+				$this->checkdata($username,$email,$password);
+			}else {
+				$this->view->title= 'reCAPTCHA failed, are you a robot?'.header("refresh: 8; url=".URL);
+				$this->view->content='Before pressing register please vink the box to verify that you are not a robot';
+				$this->view->render('check/index');
+			}
 		}else {
-			$this->view->title= 'reCAPTCHA failed, are you a robot?'.header("refresh: 8; url=".URL);
-			$this->view->content='Before pressing register please vink the box to verify that you are not a robot';
-			$this->view->render('check/index');
+			header("location: ".URL); //we will catch errors on input with an js file
 		}
 	}
 
-	//This function needs to be improved, check for username lenght and valid email scheduled for Socialize 0.6.0
+	//Checks lenght of #username and tries to execute the model function create if it fails it should return an error
 	private function checkdata($username,$email,$password){
-		if($username != null && $email != null && $password != null){
-			if($this->model->create($username, $email, $password) == 1){
-				$this->view->title= $username.' you are succesfull registered' .header("refresh: 10; url=".URL);
-				$this->view->content='We have send you an email to your email adress containing a link, please click this link to activate your account. <br /> Be sure to check your junk mail!';
-			}else {
-				$this->view->title= $username.' you are not registered' .header("refresh: 6; url=".URL);
-				$this->view->content='Please try again later, or use another email address.';
-				die;
-			}
+		if ($this->model->create($username, $email, $password) == 1){
 			$header = 'MIME-Version: 1.0' . "\r\n";
 			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$header .= "From:".MAIL."\r\n";
@@ -41,10 +37,10 @@ class User extends Controller {
 						      Socialize admin.
 						      </body></html>';
 			mail($email, "Welcome to Socialize" , $message, $header );
-			$this->view->render('check/index');
-		}else{
-		  header("location: ".URL);
+			$this->view->title= $username.' you are succesfull registered' .header("refresh: 10; url=".URL);
+			$this->view->content='We have send you an email to your email adress containing a link, please click this link to activate your account. <br /> Be sure to check your junk mail!';
 		}
+		$this->view->render('check/index');
 	}
 
 	// Activates an user bij checking the encoded email address in the url.
