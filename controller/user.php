@@ -4,7 +4,11 @@ class User extends Controller {
 		parent::__construct();
 	}
 
-	//Set POST values to variables and check if the recaptcha response is succesfull and if the values match with what we want, then go to the checkdata function.
+	public function index(){
+		$this->profile();
+	}
+
+	//Set POST values to variables, check if the recaptcha response is succesfull, check user input, go to the checkdata function or show error.
 	public function create(){
 		$username	= ucfirst($_POST['username']);
 		$email		= $_POST['email'];
@@ -27,18 +31,22 @@ class User extends Controller {
 
 	//Checks lenght of #username and tries to execute the model function create if it fails it should return an error
 	private function checkdata($username,$email,$password){
-		if ($this->model->create($username, $email, $password) == 1){
+		$checkdata = $this->model->create($username, $email, $password);
+		if($checkdata == 1) {
 			$header = 'MIME-Version: 1.0' . "\r\n";
-			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$header .= "From:".MAIL."\r\n";
-			$message = '<html><head><title></title></head><body>Welcome to Socialize ' .$username. ', <br /><br />
-						      We are really happy to see you here! <br />
-						      <a href="'.URL.'user/activate/'.sha1($email).'">Please use this link to activate your account</a>.<br /><br />
-						      Socialize admin.
-						      </body></html>';
-			mail($email, "Welcome to Socialize" , $message, $header );
+ 			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+ 			$header .= "From:".MAIL."\r\n";
+ 			$message = '<html><head><title></title></head><body>Welcome to Socialize ' .$username. ', <br /><br />
+ 						      We are really happy to see you here! <br />
+ 						      <a href="'.URL.'user/activate/'.sha1($email).'">Please use this link to activate your account</a>.<br /><br />
+ 						      Socialize admin.
+ 						      </body></html>';
+ 			mail($email, "Welcome to Socialize" , $message, $header );
 			$this->view->title= $username.' you are succesfull registered' .header("refresh: 10; url=".URL);
-			$this->view->content='We have send you an email to your email adress containing a link, please click this link to activate your account. <br /> Be sure to check your junk mail!';
+			$this->view->content= 'We\'ve send you an email to your email adress containing a link, please click this link to activate your account.<br />Be sure to check your junk mail!';
+		}else {
+			$this->view->title= 'Whoa! This looks like an error!'.header("refresh: 8; url=".URL);
+			$this->view->content= $checkdata;
 		}
 		$this->view->render('check/index');
 	}
@@ -55,23 +63,23 @@ class User extends Controller {
 	  $this->view->render('check/index');
 	}
 
-	//Loads n user profile by checking the username in the url
-	function profile($username = false){
+	//Loads an user profile by checking the username in the url
+	public function profile($username = false){
+		$username = ucfirst($username);
 		$this->view->item = 'profile';
-		if ($this->model->userinfo($username) !== null) {
-			$this->view->userinfo = $this->model->userinfo($username);
+		$userinfo = $this->model->userinfo($username);
+		if ($userinfo !== null) {
+			$this->view->userinfo = $userinfo;
 			if ($username == Session::get('username')) {
 				$this->view->render('profile/private');
-			} else { $this->view->render('profile/index'); }
-		} else {
-			$this->_error($username);
+			}else { $this->view->render('profile/index'); }
+		}else {
+			$this->view->title= 'User ' .$username. ' not found!';
+			$this->view->content= 'Check your spelling or you are searching for a user that does not exist!';
+			$this->view->render('check/index');
 		}
 	}
 
-	// Just for showing an error for userpages
-	private function _error($username){
-		$this->view->title= 'User ' .$username. ' not found!';
-		$this->view->content= 'Check your spelling or you are searching for a user that does not exist!';
-		$this->view->render('check/index');
-	}
+	
+
 }

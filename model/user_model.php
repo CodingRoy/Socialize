@@ -5,16 +5,17 @@ class User_Model extends Model {
   }
 
   public function create($username, $email, $password) {
+    try {
     $sth = $this->db->prepare("INSERT into users (`username`, `password`, `email`, `registration_date`) "
         . "VALUES (:username, :password, :email, CURDATE())");
     $sth->bindParam(':username', $username);
     $sth->bindParam(':email', $email);
     $sth->bindParam(':password', $password);
     $sth->execute();
-    if ($sth->rowcount() == 1) {
-      return 1;
-    } else {
-      return 0;
+    return $sth->rowcount();
+    }catch(PDOException $e) {
+      $error = $sth->errorInfo();
+      return $error[2];
     }
   }
 
@@ -22,11 +23,7 @@ class User_Model extends Model {
     $sth = $this->db->prepare("UPDATE users SET activated='Yes' WHERE sha1(email) = :email");
     $sth->bindParam(':email', $email);
     $sth->execute();
-    if ($sth->rowcount() == 1) {
-      return 1;
-    } else {
-      return 0;
-    }
+    return $sth->rowcount();
   }
 
   public function userinfo($username) {

@@ -25,6 +25,6 @@
 <?php foreach($this->overview as $key => $value):?>
 <p class=""><?=$value['post_title']?></p>
 <p class=""><strong><?=$value['username']?></strong> on </p>
-<p class=""><?=$value['post_date']?></p>
+<p class=""><?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
 <?=$value['post_content']?>
 <?php endforeach;?>
