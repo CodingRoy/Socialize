@@ -21,7 +21,6 @@
 	});
 </script>
 <p class=""> All posts </p>
-<p class="">
 <?php foreach($this->overview as $key => $value):?>
 <p class=""><?=$value['post_title']?></p>
 <p class=""><strong><?=$value['username']?></strong> on </p>

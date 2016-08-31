@@ -19,8 +19,10 @@ class Dashboard extends Controller {
 
     function post() {
       $ptitle = ucfirst($_POST['Post_title']);
-      $pcontent = ucfirst($_POST['Post']);
-      $this->model->post($ptitle, $pcontent);
-      header('location: ' .URL. 'dashboard');
+      $pcontent = filter_var(ucfirst($_POST['Post']), FILTER_SANITIZE_SPECIAL_CHARS); //No special Characters
+      if (preg_match("/^[a-zA-Z0-9 !#-]*$/",$ptitle)) {
+        $this->model->post($ptitle, $pcontent);
+        header('location: ' .URL. 'dashboard');
+      }
     }
 }
