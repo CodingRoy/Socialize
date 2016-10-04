@@ -1,5 +1,6 @@
 var error = [];
 var u = 0;
+var e = 0;
 
 function un_val() {
   var error1 = document.getElementById("error1");
@@ -24,6 +25,25 @@ function un_val() {
   }
 }
 
+  function mail_val(){
+    var error2 = document.getElementById("error2");
+    var mail_l = document.forms["Register"]["email"].value.length;
+    var email = document.forms["Register"]["email"].value;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(mailformat.test(email)){
+      error2.innerHTML = "";
+      remove('1', e);
+    }	else if (mail_l == 0) {
+      error2.innerHTML = "This is a required field";
+      error.push('1');
+      e = e +1;
+    } else {
+      error2.innerHTML = "This email address is not valid";
+      error.push('1');
+      e = e +1;
+    }
+  }
+
 function remove(x, y){
   var i = error.indexOf(x);
   if (i >= 0){
@@ -34,6 +54,7 @@ function remove(x, y){
 
 function val() {
   un_val();
+  mail_val();
   if(error.length > 0) {
     event.preventDefault();
   }
