@@ -16,7 +16,7 @@ class User extends Controller {
 		$recaptcha  = "https://google.com/recaptcha/api/siteverify";
 		$response = file_get_contents($recaptcha."?secret=".SECRETKEY."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 		$data = json_decode($response);
-		if($username != null &&$username < 30 && preg_match("/^[a-zA-Z0-9 -]*$/",$username) && preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",htmlspecialchars($email)) && $password != null){
+		if($username != null &&$username < 30 && preg_match("/^[a-zA-Z0-9,_-]*$/",$username) && preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",htmlspecialchars($email)) && $password != null){
 			if(isset($data->success) && $data->success==true){
 				$this->checkdata($username,$email,$password);
 			}else {
