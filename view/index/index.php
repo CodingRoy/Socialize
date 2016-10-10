@@ -9,7 +9,7 @@
 	<p id="error2"></p>
 	<p class="">Create password</p>
 	<input class="" type="password" name="password" placeholder="Create password" onblur="pass_val()">
-	<p id="error2"></p>
+	<p id="error3"></p>
 	<div class="g-recaptcha" data-sitekey="<?php echo SITEKEY ?>"></div>
 	<input class="" onclick="val()" type="submit" value="Register">
 </form>
