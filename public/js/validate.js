@@ -73,6 +73,7 @@ function remove(x, y){
 function val() {
   un_val();
   mail_val();
+  pass_val();
   if(error.length > 0) {
     event.preventDefault();
   }
