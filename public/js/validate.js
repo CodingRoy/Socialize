@@ -58,7 +58,7 @@ function un_val() {
       p = p +1;
     } else {
       error3.innerHTML = "";
-      remove('0', p);
+      remove('2', p);
     }
   }
 

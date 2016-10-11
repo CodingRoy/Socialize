@@ -11,11 +11,14 @@ This project is going to be made in an MVC structure based on PHP and a bit jQue
 ## License
 [Socialize License](LICENSE)
 
-## Recaptcha security
-Google Recaptcha can be found here: https://developers.google.com/recaptcha/, sign in with your google account and make your API key here: https://www.google.com/recaptcha/admin#list.
-### To get the Recaptcha working follow these steps:
-* Create your API key's by registering your domain and copy your "Site key"
-* Replace "Your Site key" in the config file: Socialize/config.php
-* Copy your "Secret Key" from recaptcha and replace "Your Secret key" also in the config file. ;) 
+## Installation
+* Clone this repository
+* Change the security file: Socailize/security.php , with your own credentials and databasename.
+* Move the Socailize/security.php file to ../private , make this directory first!  _or place it somewhere different and change the location in the config.php file_
+* Change the config file: Socailize/config.php , with your own URL and e-mail address
+* To set the SITEKEY and SECRETKEY in the config file you have to create a google reCAPTCHA API: https://www.google.com/recaptcha/admin#list _It is required to have a google account_
+* Create your API keys by registering your domain and copy your "Site key"
+* Replace "Your Site key" in the config file
+* Copy your "Secret Key" from recaptcha and replace "Your Secret key" in the config file ;)
 
-Recaptcha should now work fine 😄 
+The website and Recaptcha should now work fine 😄, more info about reCAPTCHA can be found here: https://developers.google.com/recaptcha/

@@ -25,7 +25,7 @@ class User extends Controller {
 				$this->view->render('check/index');
 			}
 		}else {
-			header("location: ".URL); //we will catch errors on input with an js file
+			header("location: ".URL); //we catch errors on input with the public/js/validation.js file
 		}
 	}
 
