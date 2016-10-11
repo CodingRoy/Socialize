@@ -51,14 +51,14 @@ function un_val() {
     if (un_l == 0) {
       error3.innerHTML = "This is a required field";
       error.push('2');
-      p = u +1;
+      p = p +1;
     } else if (un_l < 3) {
       error3.innerHTML = "Min length of 3 characters, for your own safety";
       error.push('2');
-      p = u +1;
+      p = p +1;
     } else {
       error3.innerHTML = "";
-      remove('0', u);
+      remove('0', p);
     }
   }
 
