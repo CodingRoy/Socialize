@@ -32,7 +32,7 @@ class User extends Controller {
 	//Checks lenght of #username and tries to execute the model function create if it fails it should return an error
 	private function checkdata($username,$email,$password){
 		$checkdata = $this->model->create($username, $email, $password);
-		if($checkdata == 1) {
+		if($checkdata === 1) {
 			$header = 'MIME-Version: 1.0' . "\r\n";
  			$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
  			$header .= "From:".MAIL."\r\n";
@@ -46,7 +46,7 @@ class User extends Controller {
 			$this->view->content= 'We\'ve send you an email to your email adress containing a link, please click this link to activate your account.<br />Be sure to check your junk mail!';
 		}else {
 			$this->view->title= 'Whoa! This looks like an error!'.header("refresh: 8; url=".URL);
-			$this->view->content= $checkdata;
+			$this->view->content= $checkdata.' Please notify one of our admins';
 		}
 		$this->view->render('check/index');
 	}
@@ -78,5 +78,20 @@ class User extends Controller {
 			$this->view->content= 'Check your spelling or you are searching for a user that does not exist!';
 			$this->view->render('check/index');
 		}
+	}
+
+	//Deletes the active user by getting the current session username
+	function delete(){
+		$username = Session::get('username');
+		$userdel = $this->model->delete($username);
+		if($userdel === 1){
+			$this->view->title= 'Your account has been deleted' .header("refresh: 6; url=".URL);
+			$this->view->content= "To bad you're leaving, we're gonna mis you";
+		}else {
+			$this->view->title= 'Oops looks like an error!' .header("refresh: 6; url=".URL);
+			$this->view->content= $userdel.' Please notify one of our admins' ;
+		}
+		$this->view->render('check/index');
+
 	}
 }

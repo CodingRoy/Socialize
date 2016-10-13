@@ -13,7 +13,7 @@ class User_Model extends Model {
     $sth->bindParam(':password', $password);
     $sth->execute();
     return $sth->rowcount();
-    }catch(PDOException $e) {
+    } catch(PDOException $e) {
       $error = $sth->errorInfo();
       return $error[2];
     }
@@ -34,6 +34,18 @@ class User_Model extends Model {
       return $sth->fetchAll();
     } else {
       return null;
+    }
+  }
+
+  function delete($username) {
+    try {
+    $sth = $this->db->prepare("DELETE FROM users WHERE username = :Username");
+    $sth->bindParam(':Username', $username);
+    $sth->execute();
+    return $sth->rowcount();
+    } catch(PDOException $e) {
+      $error = $sth->errorInfo();
+      return $error[2];
     }
   }
 }
