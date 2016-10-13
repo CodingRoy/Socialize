@@ -8,17 +8,7 @@
 	<input class="" type="submit" value="Post"/>
 </form>
 <script type="text/javascript">
-	$(function() {
-		$('form').each(function() {
-			$(this).find('textarea').keypress(function(e) {
-				// Submit form if enter is pressed without shift
-				if(e.which == 10 || e.which == 13 && ! e.shiftKey) {
-					this.form.submit();
-				}
-			});
-			$(this).find('input[type=submit]').hide();
-		});
-	});
+ //make a non JQuery javascript to submit post on enter
 </script>
 <p class=""> All posts </p>
 <?php foreach($this->overview as $key => $value):?>
@@ -27,5 +17,6 @@
 <p class=""><strong><?=$value['username']?></strong> on <?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
 <p class=""><?=$value['post_content']?></p>
 <?php if ($value['post_by'] === Session::get('user_id')){ ?>
-<p class=""><a href="<?php echo URL ?>/dashboard/delete/<?=$value['post_id']?>"> Delete post</a></p>
+<p class=""><a href="#" onclick="confirmation(<?=$value['post_id']?>)">Delete this post</a></p>
+<p id="confirmation<?=$value['post_id']?>" style="display:none;">Delete post '<?=$value['post_title']?>'?<a href="<?php echo URL ?>/dashboard/delete/<?=$value['post_id']?>"> Yes</a>, <a href="#" id="no">No</a></p>
 <?php } endforeach;?>
