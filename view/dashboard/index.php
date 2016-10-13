@@ -22,8 +22,10 @@
 </script>
 <p class=""> All posts </p>
 <?php foreach($this->overview as $key => $value):?>
+<hr>
 <p class=""><?=$value['post_title']?></p>
-<p class=""><strong><?=$value['username']?></strong> on </p>
-<p class=""><?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
-<?=$value['post_content']?>
-<?php endforeach;?>
+<p class=""><strong><?=$value['username']?></strong> on <?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
+<p class=""><?=$value['post_content']?></p>
+<?php if ($value['post_by'] === Session::get('user_id')){ ?>
+<p class=""><a href="<?php echo URL ?>/dashboard/delete/<?=$value['post_id']?>"> Delete post</a></p>
+<?php } endforeach;?>

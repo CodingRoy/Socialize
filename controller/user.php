@@ -92,6 +92,5 @@ class User extends Controller {
 			$this->view->content= $userdel.' Please notify one of our admins' ;
 		}
 		$this->view->render('check/index');
-
 	}
 }

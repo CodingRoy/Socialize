@@ -17,4 +17,16 @@ class Dashboard_Model extends Model {
       $sth->bindParam(':Post_by', Session::get('user_id'));
       $sth->execute();
     }
+
+    function delete($post_id) {
+      try {
+      $sth = $this->db->prepare("DELETE FROM posts WHERE post_id = :Post_id");
+      $sth->bindParam(':Post_id', $post_id);
+      $sth->execute();
+      return $sth->rowcount();
+      } catch(PDOException $e) {
+        $error = $sth->errorInfo();
+        return $error[2];
+      }
+    }
 }
