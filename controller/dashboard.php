@@ -26,9 +26,9 @@ class Dashboard extends Controller {
       }
     }
 
-    function delete($post_id){
+    function delete($post_id) {
       $postdel = $this->model->delete($post_id);
-      if($postdel === 1){
+      if($postdel === 1) {
         header('location: ' .URL. 'dashboard');
       }else {
         $this->view->title= 'Oops looks like an error!' .header("refresh: 6; url=".URL);
