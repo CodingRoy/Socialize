@@ -14,7 +14,7 @@ This project is going to be made in an MVC structure based on PHP and a bit jQue
 ## Installation
 * Clone this repository
 * Change the security file: Socialize/security.php , with your own credentials and databasename.
-* Connect to your sql server and create a database. _default Socialize_
+* Connect to your sql server and create a database.
 * Add the necessery tables by copying the code in the tables.sql file or import this file.
 * Move the Socialize/security.php file to ../private , make this directory first!  _or place it somewhere different and change the location in the config file_
 * Change the config file: Socialize/config.php , with your own URL and e-mail address.
