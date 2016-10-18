@@ -26,6 +26,24 @@ class Dashboard_Model extends Model {
       $sth->execute();
     }
 
+    function fav($post_id) {
+      $sth = $this->db->prepare("INSERT INTO post_fav (fpost_id, fuser_id)
+        SELECT :Post_id, :User_id
+        WHERE EXISTS (
+          SELECT post_id
+          FROM posts
+          WHERE post_id = :Post_id)
+        AND NOT EXISTS (
+          SELECT id
+          FROM post_fav
+          WHERE fpost_id = :Post_id
+          AND  fuser_id = :User_id)
+        LIMIT 1");
+      $sth->bindParam(':Post_id', $post_id);
+      $sth->bindParam(':User_id', Session::get('user_id'));
+      $sth->execute();
+    }
+
     function delete($post_id) {
       try {
       $sth = $this->db->prepare("DELETE FROM posts WHERE post_id = :Post_id AND post_by = :User_id");
