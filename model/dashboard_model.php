@@ -5,7 +5,15 @@ class Dashboard_Model extends Model {
     }
 
     public function overview() {
-      $sth = $this->db->prepare("SELECT * FROM posts LEFT JOIN users ON post_by = user_id ORDER BY post_date DESC");
+      $sth = $this->db->prepare("SELECT *,
+        COUNT(post_fav.id) AS favcount
+        FROM posts
+        LEFT JOIN users
+        ON post_by = user_id
+        LEFT JOIN post_fav
+        ON post_id = fpost_id
+        GROUP BY post_id
+        ORDER BY post_date DESC");
       $sth->execute();
       return $sth->fetchAll();
     }
@@ -20,8 +28,9 @@ class Dashboard_Model extends Model {
 
     function delete($post_id) {
       try {
-      $sth = $this->db->prepare("DELETE FROM posts WHERE post_id = :Post_id");
+      $sth = $this->db->prepare("DELETE FROM posts WHERE post_id = :Post_id AND post_by = :User_id");
       $sth->bindParam(':Post_id', $post_id);
+      $sth->bindParam(':User_id', Session::get('user_id'));
       $sth->execute();
       return $sth->rowcount();
       } catch(PDOException $e) {

@@ -25,15 +25,15 @@ class Dashboard extends Controller {
         header('location: ' .URL. 'dashboard');
       }
     }
-
+  
     function delete($post_id) {
       $postdel = $this->model->delete($post_id);
       if($postdel === 1) {
         header('location: ' .URL. 'dashboard');
       }else {
-        $this->view->title= 'Oops looks like an error!' .header("refresh: 6; url=".URL);
-        $this->view->content= $postdel.' Please notify one of our admins' ;
-        $this->view->render('dashboard/index');
+        $this->view->title= 'Not allowed!' .header("refresh: 6; url=".URL."dashboard");
+        $this->view->content= "It looks like you're trying to delete a post that's not yours!" ;
+        $this->view->render('check/index');
       }
     }
 }
