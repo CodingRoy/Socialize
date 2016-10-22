@@ -5,8 +5,9 @@ class Dashboard_Model extends Model {
     }
 
     public function overview() {
-      $sth = $this->db->prepare("SELECT *,
-        COUNT(post_fav.id) AS favcount
+      $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username,
+        COUNT(post_fav.id) AS favcount,
+        GROUP_CONCAT(fuser_id SEPARATOR '|') as favuser
         FROM posts
         LEFT JOIN users
         ON post_by = user_id
