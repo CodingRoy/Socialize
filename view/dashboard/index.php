@@ -1,7 +1,7 @@
 <p class=""> Post your message: </p>
 <p class=""> Press TAB to switch section easier.</p>
 <p class="">Post title:</p>
-<form action="dashboard/post" method="post">
+<form action="<?php echo URL ?>dashboard/post" method="post">
 	<input class="" type="text" name="Post_title" placeholder="Enter your title here">
 	<p class="">Post message:</p>
 	<textarea class="" type="text" name="Post" placeholder="Enter your message here"></textarea>

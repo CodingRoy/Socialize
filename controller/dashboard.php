@@ -31,6 +31,12 @@ class Dashboard extends Controller {
       header('location: ' .URL. 'dashboard#'.$post_id);
     }
 
+    function favposts() {
+      $this->view->item = 'dashboard';
+      $this->view->overview = $this->model->favposts();
+      $this->view->render('dashboard/index');
+    }
+
     function delete($post_id) {
       $postdel = $this->model->delete($post_id);
       if($postdel === 1) {
