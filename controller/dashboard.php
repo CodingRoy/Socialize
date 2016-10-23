@@ -28,7 +28,7 @@ class Dashboard extends Controller {
 
     function fav($post_id) {
       $this->model->fav($post_id);
-      header('location: ' .URL. 'dashboard');
+      header('location: ' .URL. 'dashboard#'.$post_id);
     }
 
     function delete($post_id) {
