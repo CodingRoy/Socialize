@@ -11,9 +11,9 @@ class Dashboard extends Controller {
       }
     }
 
-    function index() {
+    function index($order = false) {
       $this->view->item = 'dashboard';
-      $this->view->overview = $this->model->overview();
+      $this->view->overview = $this->model->overview($order);
       $this->view->render('dashboard/index');
     }
 

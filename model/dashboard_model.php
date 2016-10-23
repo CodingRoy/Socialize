@@ -4,22 +4,7 @@ class Dashboard_Model extends Model {
       parent::__construct();
     }
 
-    public function overview() {
-      $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username,
-        COUNT(post_fav.id) AS favcount,
-        GROUP_CONCAT(fuser_id SEPARATOR '|') as favuser
-        FROM posts
-        LEFT JOIN users
-        ON post_by = user_id
-        LEFT JOIN post_fav
-        ON post_id = fpost_id
-        GROUP BY post_id
-        ORDER BY post_date DESC");
-      $sth->execute();
-      return $sth->fetchAll();
-    }
-
-    public function favposts() {
+    public function overview($order) {
       $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username,
         COUNT(post_fav.id) AS favcount,
         GROUP_CONCAT(fuser_id SEPARATOR '|') as favuser
@@ -31,7 +16,9 @@ class Dashboard_Model extends Model {
         GROUP BY post_id
         ORDER BY favcount DESC");
       $sth->execute();
-      return $sth->fetchAll();
+      $output = $sth->fetchAll();
+      $order == 'favposts' ? '' : arsort($output) ;
+      return $output;
     }
 
     function post($ptitle, $pcontent) {
