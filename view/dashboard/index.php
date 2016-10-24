@@ -4,11 +4,11 @@
 <form action="<?php echo URL ?>dashboard/post" method="post">
 	<input class="" type="text" name="Post_title" placeholder="Enter your title here">
 	<p class="">Post message:</p>
-	<textarea class="" type="text" name="Post" placeholder="Enter your message here"></textarea>
-	<input class="" type="submit" value="Post"/>
+	<textarea class="" type="text" name="Post" placeholder="Enter your message here" onkeyup="checkSubmit(event)"></textarea>
+	<input class="test" id="test" type="submit" value="Post"/>
 </form>
 <script type="text/javascript">
- //make a non JQuery javascript to submit post on enter
+document.getElementById("test").style.display = "none";
 </script>
 <p class=""> All posts </p>
 <?php foreach($this->overview as $key => $value):?>
