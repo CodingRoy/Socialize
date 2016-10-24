@@ -19,7 +19,8 @@ class Dashboard extends Controller {
 
     function post() {
       $ptitle = ucfirst($_POST['Post_title']);
-      $pcontent = filter_var(ucfirst($_POST['Post']), FILTER_SANITIZE_SPECIAL_CHARS); //No special Characters
+      $pcontent = str_replace("\r\n" , '', $_POST['Post']);
+      $pcontent = filter_var(ucfirst($pcontent), FILTER_SANITIZE_SPECIAL_CHARS); //No special Characters
       if (preg_match("/^[a-zA-Z0-9 ?!#-]*$/",$ptitle)) {
         $this->model->post($ptitle, $pcontent);
         header('location: ' .URL. 'dashboard');

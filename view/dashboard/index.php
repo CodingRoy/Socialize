@@ -5,10 +5,10 @@
 	<input class="" type="text" name="Post_title" placeholder="Enter your title here">
 	<p class="">Post message:</p>
 	<textarea class="" type="text" name="Post" placeholder="Enter your message here" onkeyup="checkSubmit(event)"></textarea>
-	<input class="" id="submit" type="submit" value="Post"/>
+	<input class="" id="post" type="submit" value="Post"/>
 </form>
 <script type="text/javascript">
-document.getElementById("submit").style.display = "none";
+document.getElementById("post").style.display = "none";
 </script>
 <p class=""> All posts </p>
 <?php foreach($this->overview as $key => $value):?>
