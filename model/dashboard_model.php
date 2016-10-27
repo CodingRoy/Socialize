@@ -15,7 +15,6 @@ class Dashboard_Model extends Model {
         ON post_id = fpost_id
         GROUP BY post_id
         ORDER BY favcount DESC");
-      $sth->bindParam(':User_id', Session::get('user_id'));
       $sth->execute();
       $output = $sth->fetchAll();
       $order == 'favposts' ? '' : arsort($output) ;
