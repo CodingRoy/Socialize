@@ -5,7 +5,7 @@ class Dashboard_Model extends Model {
     }
 
     public function overview($order) {
-      $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username,
+      $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username, user_id,
         COUNT(post_fav.id) AS favcount,
         GROUP_CONCAT(fuser_id SEPARATOR '|') as favuser
         FROM posts
@@ -15,10 +15,28 @@ class Dashboard_Model extends Model {
         ON post_id = fpost_id
         GROUP BY post_id
         ORDER BY favcount DESC");
+      $sth->bindParam(':User_id', Session::get('user_id'));
       $sth->execute();
       $output = $sth->fetchAll();
       $order == 'favposts' ? '' : arsort($output) ;
       return $output;
+    }
+
+    function userposts($type) {
+      $sth = $this->db->prepare("SELECT post_id, post_title, post_content, post_date, post_by, username, user_id,
+        COUNT(post_fav.id) AS favcount,
+        GROUP_CONCAT(fuser_id SEPARATOR '|') as favuser
+        FROM posts
+        LEFT JOIN users
+        ON post_by = user_id
+        LEFT JOIN post_fav
+        ON post_id = fpost_id
+        WHERE $type = :User_id
+        GROUP BY post_id
+        ORDER BY favcount DESC");
+      $sth->bindParam(':User_id', Session::get('user_id'));
+      $sth->execute();
+      return $sth->fetchAll();
     }
 
     function post($ptitle, $pcontent) {

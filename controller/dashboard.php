@@ -17,6 +17,23 @@ class Dashboard extends Controller {
       $this->view->render('dashboard/index');
     }
 
+    function userposts($type = false) {
+      switch ($type) {
+        case "user":
+          $type = "user_id";
+          break;
+        case "favourites":
+          $type = "fuser_id";
+          break;
+        default:
+          $this->index();
+          exit;
+      }
+      $this->view->item = 'dashboard';
+      $this->view->overview = $this->model->userposts($type);
+      $this->view->render('dashboard/index');
+    }
+
     function post() {
       $ptitle = ucfirst($_POST['Post_title']);
       $pcontent = str_replace("\r\n" , '', $_POST['Post']);
@@ -25,11 +42,6 @@ class Dashboard extends Controller {
         $this->model->post($ptitle, $pcontent);
         header('location: ' .URL. 'dashboard');
       }
-    }
-
-    function fav($post_id) {
-      $this->model->fav($post_id);
-      header('location: ' .URL. 'dashboard#'.$post_id);
     }
 
     function favposts() {
