@@ -1,1 +1,224 @@
-/*this will be the css file for all pages*/
+/***************************************
+    Normalising and setting Defaults
+****************************************/
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
+
+/* Border-Box */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 14px;
+}
+
+/* Remove default margin and padding and also set font and related stuff. */
+body {
+  margin: 0;
+  padding: 0px;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #f7f7f7;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+  color: rgba(0, 0, 0, 0.8);
+  font-smoothing: antialiased;
+}
+
+/* Correct `block` display not defined */
+article, figcaption, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+/* Remove the gray background color from active links in IE 10. */
+a {
+  background: transparent;
+}
+
+/* Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover {
+  outline: 0;
+}
+
+/* Address style set to `bolder` in Firefox 4+, Safari, and Chrome. */
+b, strong {
+  font-weight: bold;
+}
+
+
+/* Address inconsistent and variable font size in all browsers. */
+small {
+  font-size: 80%;
+}
+
+/* Remove border when inside `a` element in IE 8/9/10. */
+img {
+  border: 0;
+}
+
+/* Correct overflow not hidden in IE 9/10/11. */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Address differences between Firefox and other browsers. */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* Prevent 'ol' and 'ul' from effecting list-style-type */
+ol, ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* iPad Input Shadows */
+input[type="text"], input[type="email"], input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* mobile firefox too! */
+}
+
+/**
+ * 1. Correct color not being inherited.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+/* Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+input {
+  line-height: normal;
+}
+
+/* Remove default vertical scrollbar in IE 8/9/10/11. */
+textarea {
+  overflow: auto;
+}
+
+/* Address `overflow` set to `hidden` in IE 8/9/10/11. */
+button, input[type="submit"] {
+  overflow: visible;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button, select {
+  text-transform: none;
+}
+
+/* Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*******************************
+        MAIN UI SETTINGS
+*******************************/
+/***************Headers****************/
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.2857em;
+  margin: calc(2rem -  0.14285em ) 0em 1rem;
+  font-weight: bold;
+  padding: 0em;
+}
+
+h1 {
+  min-height: 1rem;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.714rem;
+}
+
+h3 {
+  font-size: 1.28rem;
+}
+
+h4 {
+  font-size: 1.071rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child,h5:first-child {
+  margin-top: 0em;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child {
+  margin-bottom: 0em;
+}
+
+/***************Text***************/
+p {
+  margin: 0em 0em 1em;
+  line-height: 1.4285em;
+}
+
+/* Links */
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1e70bf;
+}
+
+/*************Highlighting*************/
+::-webkit-selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+::-moz-selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+::selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::-webkit-selection, input::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::-moz-selection, input::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::selection, input::selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
