@@ -5,6 +5,7 @@ class Controller {
 		$this->view = new View();
 	}
 
+// Loads model from controller if exists
 	public function loadModel($name){
 		$path = 'model/' . $name . '_model.php';
 
