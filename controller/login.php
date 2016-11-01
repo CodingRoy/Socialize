@@ -9,6 +9,7 @@ class Login extends Controller {
 		$this->view->render('login/index');
 	}
 
+// sets $_POST values to @params string @password and $username
 	function run(){
 		$password = Hash::create('md5', $_POST['password']);
 		$username = ucfirst($_POST['username']);

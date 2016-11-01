@@ -11,29 +11,26 @@ class Dashboard extends Controller {
       }
     }
 
+// show certain posts by checking the @param string $order
     function index($order = false) {
       $this->view->item = 'dashboard';
-      $this->view->overview = $this->model->overview($order);
-      $this->view->render('dashboard/index');
-    }
-
-    function userposts($type = false) {
-      switch ($type) {
-        case "user":
-          $type = "user_id";
+      switch ($order) {
+        case 'user':
+          $this->view->overview = $this->model->userposts();
+          $this->view->render('dashboard/index');
           break;
-        case "favourites":
-          $type = "fuser_id";
+        case 'favourites':
+          $this->view->overview = $this->model->overview($order);
+          $this->view->render('dashboard/favourites');
           break;
         default:
-          $this->index();
-          exit;
+          $this->view->overview = $this->model->overview($order);
+          $this->view->render('dashboard/index');
+          break;
       }
-      $this->view->item = 'dashboard';
-      $this->view->overview = $this->model->userposts($type);
-      $this->view->render('dashboard/index');
     }
 
+// sets $_POST values to @params string $ptitle, $pcontent
     function post() {
       $ptitle = ucfirst($_POST['Post_title']);
       $pcontent = str_replace("\r\n" , '', $_POST['Post']);
@@ -44,12 +41,7 @@ class Dashboard extends Controller {
       }
     }
 
-    function favposts() {
-      $this->view->item = 'dashboard';
-      $this->view->overview = $this->model->favposts();
-      $this->view->render('dashboard/index');
-    }
-
+// check model to delete a post
     function delete($post_id) {
       $postdel = $this->model->delete($post_id);
       if($postdel === 1) {

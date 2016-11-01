@@ -4,6 +4,7 @@ class Login_Model extends Model {
 		parent::__construct();
 	}
 
+// check the values $username and $password in the database and set session variables
 	public function run($username, $password){
 		$sth = $this->db->prepare("SELECT user_id FROM users WHERE username = :username AND password = :password AND activated = 'Yes'");
 		$sth->bindParam(':username', $username);

@@ -4,6 +4,7 @@ class User_Model extends Model {
     parent::__construct();
   }
 
+// create a user with params
   public function create($username, $email, $password) {
     try {
     $sth = $this->db->prepare("INSERT into users (`username`, `password`, `email`, `registration_date`) "
@@ -19,6 +20,7 @@ class User_Model extends Model {
     }
   }
 
+// activate a user with @param string $email
   public function activate($email) {
     $sth = $this->db->prepare("UPDATE users SET activated='Yes' WHERE sha1(email) = :email");
     $sth->bindParam(':email', $email);
@@ -26,6 +28,7 @@ class User_Model extends Model {
     return $sth->rowcount();
   }
 
+// select all info from a user
   public function userinfo($username) {
     $sth = $this->db->prepare("SELECT * FROM users WHERE username = :Username");
     $sth->bindParam(':Username', $username);
@@ -37,6 +40,7 @@ class User_Model extends Model {
     }
   }
 
+// delete a user 
   function delete($username) {
     try {
     $sth = $this->db->prepare("DELETE FROM users WHERE username = :Username");
