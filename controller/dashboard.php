@@ -41,6 +41,12 @@ class Dashboard extends Controller {
       }
     }
 
+// mark post as favourite with @param int $post_id
+    function fav($post_id) {
+      $this->model->fav($post_id);
+      header('location: ' .URL. 'dashboard#'.$post_id);
+    }
+
 // check model to delete a post
     function delete($post_id) {
       $postdel = $this->model->delete($post_id);
