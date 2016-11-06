@@ -17,7 +17,7 @@ document.getElementById("post").style.display = "none";
 <p class=""><?=$value['post_title']?></p>
 <p class=""><strong><?=$value['username']?></strong> on <?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
 <p class=""><?=$value['post_content']?></p>
-<a href="<?php echo URL ?>dashboard/fav/<?=$value['post_id']?>"><button>Favourite</button></a>
+<a href="<?php echo URL ?>dashboard/fav/<?=$value['post_id']?>"><button class="">Favourite</button></a>
 <p class="">
 	<?php $fav = $value['favuser'] ? explode('|', $value['favuser']) : [];
 	foreach($fav as $id => $array){

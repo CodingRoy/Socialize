@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5 {
   line-height: 1.28em;
   margin: calc(2rem -  0.14em ) 0em 1rem;
   font-weight: bold;
-  padding: 0em;
+  padding: 0;
 }
 
 h1 {
@@ -189,6 +189,10 @@ a {
 
 a:hover {
   color: #1e70bf;
+}
+
+main {
+  margin-top: 60px;
 }
 
 /*************Highlighting*************/
@@ -370,8 +374,8 @@ textarea::selection, input::selection {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  border-radius: 0em;
-  margin: 0px 0px 0px 0px;
+  border-radius: 0;
+  margin: 0;
 }
 
 .ui.buttons .button:first-child {
@@ -435,6 +439,7 @@ i.icon.info:before {
   content: "\f129";
 }
 
+/****************Menu****************/
 .ui.menu {
     position: fixed;
     top: 0;
@@ -476,8 +481,82 @@ i.icon.info:before {
     color: #00a2ff;
 }
 
+/******************Form*****************/
+
+.ui.field.title {
+    font-size: 10pt;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.ui.field.rounded {
+    width: 200px;
+    padding: 11px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    outline: 0;
+    -webkit-appearance: none;
+    transition: border-left-width 0.2s ease;
+    transition: box-shadow 0.2s ease;
+}
+
+.ui.field.rounded:hover {
+    box-shadow: 0px 0px 1px #08f;
+}
+
+.ui.field.rounded:focus {
+    background-color: rgba(0, 0, 0, 0.01);
+    box-shadow: 0px 0px 1px #08f;
+    border: 1px solid #08f;
+    border-left: 5px solid #08f;
+}
+
+.ui.field.error, .g-recaptcha {
+    margin-bottom: 15px;
+    color: red;
+}
+
+/******************Grid*****************/
+.ui.grid {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.grid {
+    padding: 0 2em;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ui.grid {
+    padding: 0 3%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .ui.grid {
+    padding: 0 15%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.grid {
+    padding: 0 20%;
+  }
+}
+
 .ui.right.floated {
-  float: right;
-  margin-right: 0.4em;
-  margin-left: 0.4em;
+  float: right !important;
+  margin: 0 0.5em;
 }
