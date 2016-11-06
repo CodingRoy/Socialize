@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="<?php echo URL ?>public/js/validate.js"></script>
     <script src="<?php echo URL ?>public/js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/ui.css">
+    <link rel="stylesheet" type="text/css" href="public/css/ui.min.css">
 </head>
 <body>
   <header class="ui grid menu">
