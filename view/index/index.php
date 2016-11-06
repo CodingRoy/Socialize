@@ -13,3 +13,4 @@
 	<div class="g-recaptcha" data-sitekey="<?php echo SITEKEY ?>"></div>
 	<input class="" onclick="val()" type="submit" value="Register">
 </form>
+<script src='https://www.google.com/recaptcha/api.js'></script>

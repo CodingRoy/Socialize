@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Socialize</title>
     <meta charset="UTF-8">
@@ -7,13 +7,12 @@
     <script src="<?php echo URL ?>public/js/validate.js"></script>
     <script src="<?php echo URL ?>public/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/ui.min.css">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <header class="">
-    <a class="" href="<?php echo URL ?>"><i class="home icon"></i>Socialize</a>
     <nav>
       <ul>
+        <li><a class="" href="<?php echo URL ?>"><i class="home icon"></i>Socialize</a></li>
         <li><a class="" href="<?php echo URL ?>about"><i class="info icon"></i>About</a></li>
         <li><a class="" href="<?php echo URL ?>dashboard"><i class="comments icon"></i>Dashboard</a></li>
         <li><a class="" href="<?php echo URL ?>login"><i class="sign in icon"></i>Login</a></li>
