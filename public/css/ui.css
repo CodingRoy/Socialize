@@ -149,6 +149,7 @@ h1, h2, h3, h4, h5 {
 h1 {
   min-height: 1rem;
   font-size: 2rem;
+  text-align: center;
 }
 
 h2 {
@@ -236,7 +237,7 @@ textarea::selection, input::selection {
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
   margin: 0em 0.25em 0em 0em;
-  padding: 0.78em 1.5em 0.78em;
+  padding: 0.78em 1.5em;
   text-shadow: none;
   font-weight: bold;
   line-height: 1em;
@@ -269,43 +270,93 @@ textarea::selection, input::selection {
   color: rgba(0, 0, 0, 0.9);
 }
 
-/* Labeled Button */
-.ui.labeled.button:not(.icon) {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  background: none !important;
-  padding: 0px !important;
-  border: none !important;
-  margin: 0;
+/* Primary button*/
+.ui.primary.button {
+  background: #1B1C1D none;
+  color: #FFF;
 }
 
-.ui.label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0px 0px 0px -1px !important;
+.ui.primary.button:focus, .ui.primary.button:hover{
+  background: #27292A none;
+}
+
+.ui.primary.button:active, .ui.primary.active.button {
+  background: #343637 none;
+}
+
+/* Warning button*/
+.ui.warning.button {
+  background: #FBBD08 none;
+  color: #FFF;
+}
+
+.ui.warning.button:hover, .ui.warning.button:focus{
+background: #DAA300 none;
+}
+
+.ui.warning.button:active, .ui.warning.active.button{
+background: #CD9903 none;
+}
+
+/*Danger button*/
+.ui.danger.button {
+  background: #DB2828 none;
+  color: #FFF;
+}
+
+.ui.danger.button:hover, .ui.danger.button:focus{
+background: #CA1010 none;
+}
+
+.ui.danger.button:active, .ui.danger.active.button{
+background: #B21E1E none;
+}
+
+/* Info button*/
+.ui.info.button {
+  background: #2185D0 none;
+  color: #FFFFFF;
+}
+
+.ui.info.button:hover, .ui.info.button:focus {
+  background: #0D71BB none;
+}
+
+.ui.info.button:active, .ui.info.active.button{
+  background: #1A69A4 none;
+}
+
+/* Labeled Button */
+.ui.labeled.button {
+  display: inline-block;
+  margin: 0;
+  padding: 0.78em 0.8em;
   font-size: 1em;
   border-color: rgba(34, 36, 38, 0.15);
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
-/* Left Side */
-.ui.labeled.button {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+.ui.labeled.active.button{
+  cursor: default;
+}
+
+.ui.label {
+  cursor: default;
+  display: inline-block;
+  line-height: 1;
+  font-size: 1em;
+  vertical-align: baseline;
+  margin-left: -3px;
+  background: #DDD none;
+  padding: 0.78em 0.8em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  font-weight: bold;
+  border: 0px solid transparent;
+  border-radius: 0 0.28rem 0.28rem 0;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 /* Icon */
@@ -482,7 +533,6 @@ i.icon.info:before {
 }
 
 /******************Form*****************/
-
 .ui.field.title {
     font-size: 10pt;
     color: #555;
@@ -490,10 +540,10 @@ i.icon.info:before {
 }
 
 .ui.field.rounded {
-    width: 200px;
+    width: 220px;
     padding: 11px 14px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
     outline: 0;
     -webkit-appearance: none;
     transition: border-left-width 0.2s ease;
@@ -505,15 +555,27 @@ i.icon.info:before {
 }
 
 .ui.field.rounded:focus {
-    background-color: rgba(0, 0, 0, 0.01);
-    box-shadow: 0px 0px 1px #08f;
-    border: 1px solid #08f;
-    border-left: 5px solid #08f;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: 0px 0px 2px #08f;
+    border: 1px solid #07f;
+    border-left: 5px solid #07f;
+}
+
+.ui.text.field.rounded{
+  width: 300px;
 }
 
 .ui.field.error, .g-recaptcha {
     margin-bottom: 15px;
     color: red;
+}
+
+.ui.field.rounded.error {
+  background-color: #FFF0F0;
+  border-color: #E7A0A0;
+  color: #F88888;
+  box-shadow: none;
+  margin: 0;
 }
 
 /******************Grid*****************/
