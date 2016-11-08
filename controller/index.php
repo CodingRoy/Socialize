@@ -7,6 +7,7 @@ class Index extends Controller {
 	}
 
 	function index() {
+		$this->view->item = 'index';
 		$this->view->render('index/index');
 	}
 

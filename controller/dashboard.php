@@ -17,13 +17,21 @@ class Dashboard extends Controller {
       switch ($order) {
         case 'user':
           $this->view->overview = $this->model->userposts();
+          $this->view->header = 'All your posts';
           $this->view->render('dashboard/index');
           break;
         case 'favourites':
           $this->view->overview = $this->model->overview($order);
+          $this->view->header = 'Your favourite posts';
           $this->view->render('dashboard/favourites');
           break;
+          case 'favposts':
+            $this->view->overview = $this->model->overview($order);
+            $this->view->header = 'All posts descending favourites';
+            $this->view->render('dashboard/index');
+            break;
         default:
+          $this->view->header = 'All posts descending date';
           $this->view->overview = $this->model->overview($order);
           $this->view->render('dashboard/index');
           break;
@@ -39,6 +47,12 @@ class Dashboard extends Controller {
         $this->model->post($ptitle, $pcontent);
         header('location: ' .URL. 'dashboard');
       }
+    }
+
+// mark post as favourite with @param int $post_id
+    function fav($post_id) {
+      $this->model->fav($post_id);
+      header('location: ' .URL. 'dashboard#'.$post_id);
     }
 
 // check model to delete a post

@@ -1,0 +1,723 @@
+/***************************************
+    Normalising and setting Defaults
+****************************************/
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
+
+/* Border-Box */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 14px;
+}
+
+/* Remove default margin and padding and also set font and related stuff. */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #f7f7f7;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.42em;
+  color: rgba(0, 0, 0, 0.8);
+  font-smoothing: antialiased;
+}
+
+/* Correct `block` display not defined */
+article, figcaption, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+/* Remove the gray background color from active links in IE 10. */
+a {
+  background: transparent;
+}
+
+/* Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover {
+  outline: 0;
+}
+
+/* Address style set to `bolder` in Firefox 4, Safari, and Chrome. */
+b, strong {
+  font-weight: bold;
+}
+
+/* Address inconsistent and variable font size in all browsers. */
+small {
+  font-size: 80%;
+}
+
+/* Remove border when inside `a` element in IE 8/9/10. */
+img {
+  border: 0;
+}
+
+/* Correct overflow not hidden in IE 9/10/11. */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Address differences between Firefox and other browsers. */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* Prevent 'ol' and 'ul' from effecting list-style-type */
+ol, ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* iPad Input Shadows */
+input[type="text"], input[type="email"], input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* mobile firefox too! */
+}
+
+/**
+ * 1. Correct color not being inherited.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4, Safari, and Chrome.
+ */
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+/* Address Firefox 4 setting `line-height` on `input` using `!important` in the UA stylesheet. */
+input {
+  line-height: normal;
+}
+
+/* Remove default vertical scrollbar in IE 8/9/10/11. */
+textarea {
+  overflow: auto;
+}
+
+/* Address `overflow` set to `hidden` in IE 8/9/10/11. */
+button, input[type="submit"] {
+  overflow: visible;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button, select {
+  text-transform: none;
+}
+
+/* Remove inner padding and border in Firefox 4. */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*******************************
+        MAIN UI SETTINGS
+*******************************/
+/***************Headers****************/
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.28em;
+  margin: calc(2rem -  0.14em ) 0em 1rem;
+  font-weight: bold;
+  padding: 0;
+}
+
+h1 {
+  min-height: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.71rem;
+}
+
+h3 {
+  font-size: 1.28rem;
+}
+
+h4 {
+  font-size: 1.07rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child,h5:first-child {
+  margin-top: 0em;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child {
+  margin-bottom: 0em;
+}
+
+/***************Text***************/
+p {
+  margin: 0em 0em 1em;
+  line-height: 1.42em;
+}
+
+/* Links */
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1e70bf;
+}
+
+main {
+  margin-top: 60px;
+}
+
+/*************Highlighting*************/
+::-webkit-selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+::-moz-selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+::selection {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::-webkit-selection, input::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::-moz-selection, input::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+textarea::selection, input::selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/***************Button***************/
+.ui.button {
+  display: inline-block;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: #E0E1E2 none;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0.25em 0.6em 0;
+  padding: 0.78em 1.5em;
+  text-shadow: none;
+  font-weight: bold;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.28rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*Hover and focus*/
+.ui.button:hover, .ui.button:focus{
+  background: #CACBCD none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.button:hover .icon, .ui.button:focus .icon {
+  opacity: 0.85;
+}
+
+/* Down or active*/
+.ui.button:active, .ui.active.button{
+  background: #BABBBC none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Primary button*/
+.ui.primary.button {
+  background: #1B1C1D none;
+  color: #FFF;
+}
+
+.ui.primary.button:focus, .ui.primary.button:hover{
+  background: #27292A none;
+}
+
+.ui.primary.button:active, .ui.primary.active.button {
+  background: #343637 none;
+}
+
+/* Warning button*/
+.ui.warning.button {
+  background: #E0B40D none;
+  color: #FFF;
+}
+
+.ui.warning.button:hover, .ui.warning.button:focus{
+background: #DAA300 none;
+}
+
+.ui.warning.button:active, .ui.warning.active.button{
+background: #CD9903 none;
+}
+
+/*Danger button*/
+.ui.danger.button {
+  background: #DB2828 none;
+  color: #FFF;
+}
+
+.ui.danger.button:hover, .ui.danger.button:focus{
+background: #CA1010 none;
+}
+
+.ui.danger.button:active, .ui.danger.active.button{
+background: #B21E1E none;
+}
+
+/* Info button*/
+.ui.info.button {
+  background: #2185D0 none;
+  color: #FFF;
+}
+
+.ui.info.button:hover, .ui.info.button:focus {
+  background: #0D71BB none;
+}
+
+.ui.info.button:active, .ui.info.active.button{
+  background: #1A69BA none;
+}
+
+/* Labeled Button */
+.ui.labeled.button {
+  display: inline-block;
+  padding: 0.78em 0.8em;
+  font-size: 1em;
+  border-color: rgba(34, 36, 38, 0.15);
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.ui.labeled.active.button{
+  cursor: default;
+}
+
+.ui.label {
+  cursor: default;
+  display: inline-block;
+  line-height: 1;
+  font-size: 1em;
+  vertical-align: baseline;
+  margin-left: -3px;
+  background: #DDD none;
+  padding: 0.78em 0.8em;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: none;
+  font-weight: bold;
+  border: 0px solid transparent;
+  border-radius: 0 0.28rem 0.28rem 0;
+  -webkit-transition: background 0.1s ease;
+  transition: background 0.1s ease;
+}
+
+/* Icon */
+.ui.button > .icon:not(.button) {
+  height: 0.85em;
+  opacity: 0.8;
+  margin: 0em 0.42em 0em -0.21em;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+  vertical-align: '';
+  color: '';
+}
+
+.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
+  margin: 0em -0.21em 0em 0.42em;
+}
+
+/* Icon Only */
+.ui.icon.button {
+  padding: 0.78em 0.78em 0.78em;
+}
+
+.ui.icon.button > .icon {
+  opacity: 0.9;
+  margin: 0em;
+  vertical-align: top;
+}
+
+/* Circular */
+.ui.circular.button {
+  border-radius: 10em;
+}
+
+.ui.circular.button > .icon {
+  width: 1em;
+  vertical-align: baseline;
+}
+
+/* Groups */
+.ui.buttons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  vertical-align: baseline;
+  margin: 0em 0.25em 0em 0em;
+}
+
+/* Clearfix */
+.ui.buttons:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* Standard Group */
+.ui.buttons .button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  border-radius: 0;
+  margin: 0;
+}
+
+.ui.buttons .button:first-child {
+  border-top-left-radius: 0.28rem;
+  border-bottom-left-radius: 0.28rem;
+}
+
+.ui.buttons .button:last-child {
+  border-top-right-radius: 0.28rem;
+  border-bottom-right-radius: 0.28rem;
+}
+
+/*******************Icon***********************/
+@font-face {
+  font-family: 'Icons';
+  src: url("./fonts/icons.eot");
+  src: url("./fonts/icons.eot?#iefix") format('embedded-opentype'), url("./fonts/icons.woff") format('woff'), url("./fonts/icons.ttf") format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+i.icon {
+  display: inline-block;
+  opacity: 1;
+  margin: 0 0.25rem 0 0;
+  width: 1.18em;
+  height: 1em;
+  font-family: 'Icons';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+i.icon:before {
+  background: none !important;
+}
+
+i.icon.home:before {
+  content: "\f015";
+}
+
+i.icon.comments:before {
+  content: "\f086";
+}
+
+i.icon.sign.in:before {
+  content: "\f090";
+}
+
+i.icon.info:before {
+  content: "\f129";
+}
+
+i.icon.user:before {
+  content: "\f007";
+}
+
+i.icon.settings:before {
+  content: "\f085";
+}
+
+i.icon.sign.out:before {
+  content: "\f08b";
+}
+/****************Menu****************/
+.ui.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #0f0f0f;
+    background-color: #1b1c1d;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.ui.menu .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  float: left;
+  height: 50px;
+  min-width: 50px;
+  margin: 0 20px 0 0;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #777;
+  background-color: #1b1c1d;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.ui.menu .active.item, .ui.menu .item:active {
+    box-shadow: inset 0px -1.8px 0px 0px #0066ff;
+    padding-top: 1px;
+}
+
+.ui.menu .item:hover {
+    color: #00a2ff;
+}
+
+.ui.menu .ui.right.floated.item {
+  padding-left: 6px;
+  width: 100px;
+  margin-right: 16px;
+}
+
+.ui.menu ul ul {
+    display: none;
+}
+
+.ui.menu li:hover > ul {
+    display: block;
+}
+
+.ui.menu ul ul {
+    position: fixed;
+    top: 50px;
+    min-width: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #1b1c1d;
+}
+
+.ui.menu .usermenu {
+  right: 20%;
+  margin-right: 16px;
+}
+
+.ui.menu .dashboardmenu {
+  left: 28%;
+}
+
+.ui.menu ul ul li {
+    float: none;
+    position: relative;
+    padding-left: 10px;
+}
+
+/******************Form*****************/
+.ui.field.title {
+    font-size: 10pt;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.ui.field.rounded {
+    width: 220px;
+    padding: 11px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    outline: 0;
+    -webkit-appearance: none;
+    transition: border-left-width 0.2s ease;
+    transition: box-shadow 0.2s ease;
+}
+
+.ui.field.rounded:hover {
+    box-shadow: 0px 0px 1px #08f;
+}
+
+.ui.field.rounded:focus {
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: 0px 0px 2px #08f;
+    border: 1px solid #07f;
+    border-left: 5px solid #07f;
+}
+
+.ui.text.field.rounded{
+  width: 300px;
+}
+
+.ui.field.error, .g-recaptcha {
+    margin-bottom: 15px;
+    color: red;
+}
+
+.ui.field.rounded.error {
+  background-color: #FFF0F0;
+  border-color: #E7A0A0;
+  color: #F88888;
+  box-shadow: none;
+  margin: 0;
+}
+
+/*******************Post*********************/
+.ui.block.post {
+  display: inline-block;
+  border-radius: 1px;
+  background-color: white;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid #08f;
+  box-shadow: 0px 5px 0px -3px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  text-align: left;
+  margin: 0 8px 15px 0;
+  width: 49%;
+  min-height: 200px
+}
+
+.ui.block.post > .title {
+  color: #555;
+  float: left;
+}
+
+.ui.block.post > .content {
+  margin-top: 4em;
+  width: 100%;
+}
+
+.ui.fluid.block.post {
+  width: 100%;
+  text-align: center;
+  min-height: 70px;
+}
+
+.ui.fluid.block.post .title {
+  float: none;
+  margin-bottom: -1.6em;
+}
+
+/******************Grid*****************/
+.ui.grid {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .ui.grid {
+    padding: 0 0.4em;
+  }
+
+  .ui.block.post {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui.grid {
+    padding: 0 2em;
+  }
+
+  .ui.block.post {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .ui.grid {
+    padding: 0 3%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .ui.grid {
+    padding: 0 15%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.grid {
+    padding: 0 20%;
+  }
+}
+
+.ui.right.floated {
+  float: right !important;
+}
