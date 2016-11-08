@@ -23,7 +23,7 @@
       <a href="<?php echo URL ?>dashboard/fav/<?=$value['post_id']?>"><button>Favourite</button></a>
       <p class="">
       	<?php foreach($fav as $id => $array){
-        	echo ($array == SESSION::get('user_id')) ? 'Including you ' : ''; }
+        	echo ($array === SESSION::get('user_id')) ? 'Including you ' : ''; }
         	echo $value['favcount'];
         	echo ($value['favcount'] != 1) ? ' people' : ' person'; ?> marked this as favourite
       	<?php if ($value['post_by'] === Session::get('user_id')){ ?>

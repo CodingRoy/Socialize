@@ -50,7 +50,7 @@ a:active, a:hover {
   outline: 0;
 }
 
-/* Address style set to `bolder` in Firefox 4+, Safari, and Chrome. */
+/* Address style set to `bolder` in Firefox 4, Safari, and Chrome. */
 b, strong {
   font-weight: bold;
 }
@@ -93,7 +93,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 /**
  * 1. Correct color not being inherited.
  * 2. Correct font properties not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 3. Address margins set differently in Firefox 4, Safari, and Chrome.
  */
 button, input, optgroup, select, textarea {
   color: inherit;
@@ -101,7 +101,7 @@ button, input, optgroup, select, textarea {
   margin: 0;
 }
 
-/* Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+/* Address Firefox 4 setting `line-height` on `input` using `!important` in the UA stylesheet. */
 input {
   line-height: normal;
 }
@@ -128,7 +128,7 @@ button, select {
   text-transform: none;
 }
 
-/* Remove inner padding and border in Firefox 4+. */
+/* Remove inner padding and border in Firefox 4. */
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -323,7 +323,7 @@ background: #B21E1E none;
 }
 
 .ui.info.button:active, .ui.info.active.button{
-  background: #1A69A4 none;
+  background: #1A69BA none;
 }
 
 /* Labeled Button */
@@ -454,7 +454,7 @@ background: #B21E1E none;
 i.icon {
   display: inline-block;
   opacity: 1;
-  margin: 0em 0.25rem 0em 0em;
+  margin: 0 0.25rem 0 0;
   width: 1.18em;
   height: 1em;
   font-family: 'Icons';
@@ -490,6 +490,17 @@ i.icon.info:before {
   content: "\f129";
 }
 
+i.icon.user:before {
+  content: "\f007";
+}
+
+i.icon.settings:before {
+  content: "\f085";
+}
+
+i.icon.sign.out:before {
+  content: "\f08b";
+}
 /****************Menu****************/
 .ui.menu {
     position: fixed;
@@ -513,7 +524,7 @@ i.icon.info:before {
   float: left;
   height: 50px;
   min-width: 50px;
-  margin: 0 10px;
+  margin: 0 20px 0 0;
   line-height: 50px;
   text-align: center;
   text-decoration: none;
@@ -530,6 +541,40 @@ i.icon.info:before {
 
 .ui.menu .item:hover {
     color: #00a2ff;
+}
+
+.ui.menu .ui.right.floated.item {
+  padding-left: 6px; 
+  width: 100px;
+  margin-right: 16px;
+}
+
+.ui.menu ul {
+    list-style: none;
+}
+
+.ui.menu ul ul {
+    display: none;
+}
+
+.ui.menu ul li:hover > ul {
+    display: block;
+}
+
+.ui.menu ul ul {
+    position: fixed;
+    top: 50px;
+    right: 20%;
+    margin-right: 16px;
+    min-width: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #1b1c1d;
+}
+
+.ui.menu ul ul li {
+    float: none;
+    position: relative;
+    padding-left: 10px;
 }
 
 /******************Form*****************/
@@ -578,6 +623,32 @@ i.icon.info:before {
   margin: 0;
 }
 
+/*******************Post*********************/
+.ui.block.post {
+  display: inline-block;
+  border-radius: 1px;
+  background-color: white;
+  padding: 0 15px 15px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid #08f;
+  box-shadow: 0px 5px 0px -3px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+  text-align: left;
+  margin: 0 8px 15px 0;
+  width: 49%;
+  min-height: 200px
+}
+
+.ui.block.post > .title {
+  color: #555;
+  float: left;
+}
+
+.ui.block.post > .content {
+  margin-top: 4.5em;
+  width: 100%;
+}
+
 /******************Grid*****************/
 .ui.grid {
   -webkit-box-orient: horizontal;
@@ -594,9 +665,25 @@ i.icon.info:before {
           align-items: stretch;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .ui.grid {
+    padding: 0 0.4em;
+  }
+
+  .ui.block.post {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.grid {
     padding: 0 2em;
+  }
+
+  .ui.block.post {
+    width: 100%;
+    min-height: auto;
   }
 }
 
@@ -620,5 +707,4 @@ i.icon.info:before {
 
 .ui.right.floated {
   float: right !important;
-  margin: 0 0.5em;
 }

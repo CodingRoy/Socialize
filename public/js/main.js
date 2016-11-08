@@ -1,7 +1,7 @@
 function confirmation(id) {
   var confirm = document.getElementById("confirmation"+id);
   confirm.style.display = "block";
-  document.getElementById("no").onclick = function() {
+  document.getElementById("no"+id).onclick = function() {
     confirm.style.display = "none";
   }
 }
