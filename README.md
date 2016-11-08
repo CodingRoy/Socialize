@@ -9,7 +9,7 @@ This project is going to be made in an MVC structure based on PHP and a bit jQue
 **Before using and/or changing anything of this project, please read the license!**
 
 ## Current state:
-![Index page](http://imgur.com/cIXiPwv.png) 
+![Index page](http://imgur.com/gr862tZ.png) 
 
 ## License
 [Socialize License](LICENSE)

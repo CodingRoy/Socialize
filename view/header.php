@@ -18,7 +18,7 @@
         <?php if (Session::get('loggedIn') == true):?>
             <ul class="dashboardmenu">
               <li><a href="<?php echo URL; ?>dashboard/index/user" id="userposts" class="item"><i class="user icon"></i>User posts</a></li>
-              <li><a class="item" href="<?php echo URL; ?>dashboard/index/favourites" id="favouriteposts"><i class="comments icon"></i>User favourites</a></li>
+              <li><a class="item" href="<?php echo URL; ?>dashboard/index/favourites" id="favouriteposts"><i class="user icon"></i>User favourites</a></li>
               <li><a class="item" href="<?php echo URL; ?>dashboard/index/favposts" id="logout"><i class="comments icon"></i>Favourite posts</a></li>
             </ul>
           </li>
