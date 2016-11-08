@@ -1,4 +1,4 @@
-<h1>Dashboard</h1>
+<h1>Dashboard: <?php echo $this->header; ?></h1>
 <h2> Post your message: </h2>
 <h5> Press TAB to switch section easier.</h5>
 <p class="ui field title">Post title:</p>
@@ -13,10 +13,10 @@
 </script>
 <h2> All posts </h2>
 <?php foreach($this->overview as $key => $value):?>
-<div class="ui block post">
 	<a name="<?=$value['post_id']?>"></a>
+	<div class="ui block post">
 		<h3 class="title"><?=$value['post_title']?></h3>
-		<p class="ui right floated"><strong><?=$value['username']?></strong> on <?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
+		<p class="ui right floated"><strong><?=$value['username']?></strong> on <br><?=date("d-m-Y H:i:s", strtotime($value['post_date']))?></p>
 		<p class="content"><?=$value['post_content']?></p>
 		<a href="<?php echo URL ?>dashboard/fav/<?=$value['post_id']?>">
 		<?php $fav = $value['favuser'] ? explode('|', $value['favuser']) : [];
@@ -24,10 +24,10 @@
 		foreach($fav as $id => $array){ echo ($array == SESSION::get('user_id')) ? 'active ' : '';}
 		echo 'button">Favourite</button>';
 		echo '</a><button class="ui label">'.$value['favcount'].'</button>';
-		if ($value['post_by'] === Session::get('user_id')){ ?>
-		<p class=""><a href="#<?=$value['post_id']?>" onclick="confirmation(<?=$value['post_id']?>)">Delete this post</a></p>
+		if ($value['post_by'] === Session::get('user_id')){ ?><br>
+		<a href="#<?=$value['post_id']?>" onclick="confirmation(<?=$value['post_id']?>)"><button class="ui warning button">Delete post</button></a>
 		<p id="confirmation<?=$value['post_id']?>" style="display:none;">
-			Delete post '<?=$value['post_title']?>'?
-			<a href="<?php echo URL ?>dashboard/delete/<?=$value['post_id']?>"> Yes</a>, <a href="#<?=$value['post_id']?>" id="no<?=$value['post_id']?>">No</a>
+			<strong>Delete post '<?=$value['post_title']?>' ?</strong>
+			<a href="<?php echo URL ?>dashboard/delete/<?=$value['post_id']?>"><button class="ui danger button">Yes</button></a><a href="#" id="no<?=$value['post_id']?>"><button class="ui button">No</button></a>
 		</p>
 	<?php } echo "</div>"; endforeach;?>

@@ -17,13 +17,21 @@ class Dashboard extends Controller {
       switch ($order) {
         case 'user':
           $this->view->overview = $this->model->userposts();
+          $this->view->header = 'All your posts';
           $this->view->render('dashboard/index');
           break;
         case 'favourites':
           $this->view->overview = $this->model->overview($order);
+          $this->view->header = 'Your favourite posts';
           $this->view->render('dashboard/favourites');
           break;
+          case 'favposts':
+            $this->view->overview = $this->model->overview($order);
+            $this->view->header = 'All posts descending favourites';
+            $this->view->render('dashboard/index');
+            break;
         default:
+          $this->view->header = 'All posts descending date';
           $this->view->overview = $this->model->overview($order);
           $this->view->render('dashboard/index');
           break;
