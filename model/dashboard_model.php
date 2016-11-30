@@ -53,6 +53,7 @@ class Dashboard_Model extends Model {
     function fav($post_id) {
       $sth = $this->db->prepare("INSERT INTO post_fav (fpost_id, fuser_id)
         SELECT :Post_id, :User_id
+        FROM users
         WHERE EXISTS (
           SELECT post_id
           FROM posts

@@ -26,5 +26,17 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 ALTER TABLE `users`
-  MODIFY `user_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+  CREATE TABLE `post_fav` (
+    `id` int(3) NOT NULL,
+    `fpost_id` int(3) NOT NULL,
+    `fuser_id` int(3) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+  ALTER TABLE `post_fav`
+    ADD PRIMARY KEY (`id`);
+
+  ALTER TABLE `post_fav`
+    MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 -- end of file
