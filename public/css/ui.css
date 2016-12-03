@@ -704,11 +704,29 @@ i.icon.sign.out:before {
   .ui.grid {
     padding: 0 3%;
   }
+
+  .ui.menu .usermenu {
+    right: 3%;
+    margin-right: 16px;
+  }
+
+  .ui.menu .dashboardmenu {
+    left: 18%;
+  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui.grid {
     padding: 0 15%;
+  }
+
+  .ui.menu .usermenu {
+    right: 15%;
+    margin-right: 16px;
+  }
+
+  .ui.menu .dashboardmenu {
+    left: 26%;
   }
 }
 
