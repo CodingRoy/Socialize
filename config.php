@@ -1,6 +1,6 @@
 <?php
 //define an always working path to sources with trailing Slash "/"
-define('URL', 'http://localhost/Socialize/');
+define('URL', 'http://192.168.1.14/Socialize/');
 //define an MAIL address from where mails should be sended. Below is an example.
 define('MAIL', 'noreply@Socialize.eu');
 //define the site and secret key for reCAPTCHA.

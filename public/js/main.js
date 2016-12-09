@@ -11,3 +11,16 @@ function checkSubmit(e) {
       document.forms[0].submit();
    }
 }
+
+function menu() {
+  var item = document.getElementsByClassName("item")
+  var i = 0;
+  while (item[i]) {
+    if (item[i].style.display !== 'none') {
+        item[i].style.display = 'none';
+    } else {
+        item[i].style.display = 'block';
+    }
+    i++;
+  }
+};

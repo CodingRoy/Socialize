@@ -500,6 +500,10 @@ i.icon.settings:before {
 i.icon.sign.out:before {
   content: "\f08b";
 }
+
+i.icon.content:before {
+  content: "\f0c9";
+}
 /****************Menu****************/
 .ui.menu {
     position: fixed;
@@ -512,6 +516,26 @@ i.icon.sign.out:before {
     background-color: #1b1c1d;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 1;
+}
+
+.ui.menu .logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  float: left;
+  height: 50px;
+  min-width: 50px;
+  margin: 0 20px 0 0;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #0084CC;
+  font-size: 16px;
+  background-color: #1b1c1d;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .ui.menu .item {
@@ -527,7 +551,7 @@ i.icon.sign.out:before {
   line-height: 50px;
   text-align: center;
   text-decoration: none;
-  color: #777;
+  color: #888;
   background-color: #1b1c1d;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -538,13 +562,20 @@ i.icon.sign.out:before {
     padding-top: 1px;
 }
 
-.ui.menu .item:hover {
+.ui.menu .item:hover, .ui.menu .logo:hover {
     color: #00a2ff;
+}
+
+.ui.menu .button {
+  display: block;
+  margin-top: 8px;
+  display: none;
+  width: 52px;
 }
 
 .ui.menu .ui.right.floated.item {
   padding-left: 6px;
-  width: 100px;
+  min-width: 50px;
   margin-right: 16px;
 }
 
@@ -636,7 +667,7 @@ i.icon.sign.out:before {
   box-shadow: 0px 5px 0px -3px rgba(0, 0, 0, 0.05);
   overflow: auto;
   text-align: left;
-  margin: 0 8px 15px 0;
+  margin: 0 7px 15px 0;
   width: 49%;
   min-height: 200px
 }
@@ -687,6 +718,35 @@ i.icon.sign.out:before {
     width: 100%;
     min-height: auto;
   }
+
+  .ui.menu .item {
+    width: 100%;
+    display: none;
+  }
+
+  .ui.menu .button {
+    display: block;
+  }
+
+  .ui.menu ul ul {
+      display: block;
+      width: 100%;
+      position: relative;
+      top: 0;
+  }
+
+  .ui.menu ul ul .item {
+    color: #657ca3;
+  }
+
+  .ui.menu .usermenu {
+    right: 0;
+    margin-right: 0;
+  }
+
+  .ui.menu .dashboardmenu {
+    left: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -697,6 +757,35 @@ i.icon.sign.out:before {
   .ui.block.post {
     width: 100%;
     min-height: auto;
+  }
+
+  .ui.menu .item {
+    width: 100%;
+    display: none;
+  }
+
+  .ui.menu .button {
+    display: block;
+  }
+
+  .ui.menu ul ul {
+      display: block;
+      width: 100%;
+      position: relative;
+      top: 0;
+  }
+
+  .ui.menu ul ul .item {
+    color: #657ca3;
+  }
+
+  .ui.menu .usermenu {
+    right: 0;
+    margin-right: 0;
+  }
+
+  .ui.menu .dashboardmenu {
+    left: 0;
   }
 }
 
@@ -717,7 +806,7 @@ i.icon.sign.out:before {
 
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui.grid {
-    padding: 0 15%;
+    padding: 0 14%;
   }
 
   .ui.menu .usermenu {

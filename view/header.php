@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="<?php echo URL ?>public/js/validate.js"></script>
     <script src="<?php echo URL ?>public/js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo URL ?>public/css/ui.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo URL ?>public/css/ui.css">
 </head>
 <body>
   <header class="ui grid menu">
     <nav>
       <ul>
-        <li><a class="item" href="<?php echo URL ?>" id="index"><i class="home icon"></i>Socialize</a></li>
+        <li><a class="logo" href="<?php echo URL ?>" id="index"><i class="home icon"></i>Socialize</a></li>
+        <li><button class="ui right floated button" onclick="menu()" id="mobilemenu"><i class="content icon"></i></button></li>
         <li><a class="item" href="<?php echo URL ?>about" id="about"><i class="info icon"></i>About</a></li>
         <li><a class="item" href="<?php echo URL ?>dashboard" id="dashboard"><i class="comments icon"></i>Dashboard</a>
         <?php if (Session::get('loggedIn') == true):?>
@@ -29,7 +30,7 @@
             </ul>
           </li>
         <?php else: ?>
-        </li><li><a class="ui right floated item" href="<?php echo URL ?>login"><i class="sign in icon"></i>Login</a></li>
+        <li><a class="ui right floated item" href="<?php echo URL ?>login"><i class="sign in icon"></i>Login</a></li>
         <?php endif; ?>
       </ul>
     </nav>
