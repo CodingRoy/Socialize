@@ -573,12 +573,6 @@ i.icon.content:before {
   width: 52px;
 }
 
-.ui.menu .ui.right.floated.item {
-  padding-left: 6px;
-  min-width: 50px;
-  margin-right: 16px;
-}
-
 .ui.menu ul ul {
     display: none;
 }
@@ -714,6 +708,12 @@ i.icon.content:before {
     padding: 0 0.4em;
   }
 
+  .ui.menu {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
   .ui.block.post {
     width: 100%;
     min-height: auto;
@@ -722,6 +722,8 @@ i.icon.content:before {
   .ui.menu .item {
     width: 100%;
     display: none;
+    margin: -4px 0 0 0;
+
   }
 
   .ui.menu .button {
@@ -730,14 +732,12 @@ i.icon.content:before {
 
   .ui.menu ul ul {
       display: block;
-      width: 100%;
       position: relative;
-      top: 0;
   }
 
   .ui.menu ul ul .item {
     color: #657ca3;
-  }
+  }1
 
   .ui.menu .usermenu {
     right: 0;
@@ -746,6 +746,11 @@ i.icon.content:before {
 
   .ui.menu .dashboardmenu {
     left: 0;
+  }
+
+  main {
+    position: relative;
+    margin: 0;
   }
 }
 
@@ -754,6 +759,12 @@ i.icon.content:before {
     padding: 0 2em;
   }
 
+  .ui.menu {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
   .ui.block.post {
     width: 100%;
     min-height: auto;
@@ -762,6 +773,7 @@ i.icon.content:before {
   .ui.menu .item {
     width: 100%;
     display: none;
+    margin: -2px 0 0 0;
   }
 
   .ui.menu .button {
@@ -770,14 +782,12 @@ i.icon.content:before {
 
   .ui.menu ul ul {
       display: block;
-      width: 100%;
       position: relative;
-      top: 0;
   }
 
   .ui.menu ul ul .item {
     color: #657ca3;
-  }
+  }1
 
   .ui.menu .usermenu {
     right: 0;
@@ -786,6 +796,11 @@ i.icon.content:before {
 
   .ui.menu .dashboardmenu {
     left: 0;
+  }
+
+  main {
+    position: relative;
+    margin: 0;
   }
 }
 
