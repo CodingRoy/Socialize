@@ -723,7 +723,6 @@ i.icon.content:before {
     width: 100%;
     display: none;
     margin: -4px 0 0 0;
-
   }
 
   .ui.menu .button {
@@ -731,26 +730,31 @@ i.icon.content:before {
   }
 
   .ui.menu ul ul {
-      display: block;
-      position: relative;
+    display: block;
+    margin-left: -11px;
+    width: 102%;
+    position: relative;
   }
 
   .ui.menu ul ul .item {
     color: #657ca3;
-  }1
+    float: left;
+  }
 
   .ui.menu .usermenu {
+    top: 0;
     right: 0;
     margin-right: 0;
   }
 
   .ui.menu .dashboardmenu {
+    top: 0;
     left: 0;
   }
 
   main {
     position: relative;
-    margin: 0;
+    margin: 10px 0 0 0;
   }
 }
 
@@ -781,26 +785,31 @@ i.icon.content:before {
   }
 
   .ui.menu ul ul {
-      display: block;
-      position: relative;
+    display: block;
+    margin-left: -11px;
+    width: 102%;
+    position: relative;
   }
 
   .ui.menu ul ul .item {
     color: #657ca3;
-  }1
+    float: left;
+  }
 
   .ui.menu .usermenu {
+    top: 0;
     right: 0;
     margin-right: 0;
   }
 
   .ui.menu .dashboardmenu {
+    top: 0;
     left: 0;
   }
 
   main {
     position: relative;
-    margin: 0;
+    margin: 10px 0 0 0;
   }
 }
 
