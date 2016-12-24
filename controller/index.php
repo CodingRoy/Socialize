@@ -11,6 +11,11 @@ class Index extends Controller {
 		$this->view->render('index/index');
 	}
 
+	function settings() {
+		$this->view->item = 'settings';
+		$this->view->render('index/settings');
+	}
+
 	function logout() {
 			Session::destroy();
 			header('location: ' .URL);

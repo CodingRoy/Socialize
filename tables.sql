@@ -39,4 +39,12 @@ ALTER TABLE `users`
 
   ALTER TABLE `post_fav`
     MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+  CREATE TABLE failed_logins (
+    id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(16) NOT NULL,
+    ip_address INT(11) UNSIGNED NOT NULL,
+    attempted DATETIME NOT NULL,
+    INDEX `attempted_idx` (`attempted`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 -- end of file
