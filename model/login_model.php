@@ -21,9 +21,8 @@ class Login_Model extends Model {
 			$sth2->execute(array(':user_id' => $user_id));
 			header('location: ' .URL. 'dashboard');
 		}else {
-			$ip = '192.168.1.10';
 			$sth2 = $this->db->prepare("INSERT INTO failed_logins SET username = :username, ip_address = INET_ATON(:ip), attempted = CURRENT_TIMESTAMP");
-			$sth2->execute(array(':username' => $username, ':ip' => $ip));
+			$sth2->execute(array(':username' => $username, ':ip' => $_SERVER['REMOTE_ADDR']));
 			return $checklogin;
 		}
 	}
